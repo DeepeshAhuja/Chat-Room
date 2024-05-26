@@ -2,22 +2,24 @@
 include('database.php');
 session_start();
 
-if(isset($_POST['username']) && isset($_POST['phonenumber'])) {
+if(isset($_POST['name']) && isset($_POST['number'])) {
 
-    $username = $_POST['username'];
-    $phonenumber = $_POST['phonenumber'];
+    $username = $_POST['name'];
+    $phonenumber = $_POST['number'];
 
     $q = "SELECT * FROM user WHERE uname = '$username' && unumber = '$phonenumber'";
     if($rq = mysqli_query($conn,$q)){
         if(mysqli_num_rows($rq) == 1){
-            $_SESSION["username"] = $username;
-            $_SESSION["phonenumber"] = $phonenumber;
+            $_SESSION["userName"] = $username;
+            $_SESSION["phone"] = $phonenumber;
+            // echo"login";
+            header("Location: index.php");
         }
         else{
             $q = "SELECT * FROM user WHERE unumber = '$phonenumber'";
             if($rq = mysqli_query($conn,$q)){
                 if(mysqli_num_rows($rq) == 1){
-                echo $phonenumber." is already taken";
+                echo "<script>alert($phonenumber+' is already taken')</script>";
                 }
                 else{
                     $q = "insert into user (unumber,uname) values ('$phonenumber','$username')";
@@ -25,9 +27,9 @@ if(isset($_POST['username']) && isset($_POST['phonenumber'])) {
                         $q = "SELECT * FROM user WHERE uname = '$username' && unumber = '$phonenumber'";
                         if($rq = mysqli_query($conn,$q)){
                             if(mysqli_num_rows($rq) == 1){
-                                $_SESSION["username"] = $username;
-                                $_SESSION["phonenumber"] = $phonenumber;
-                                header("location: index.php");
+                                $_SESSION["userName"] = $username;
+                                $_SESSION["phone"] = $phonenumber;
+                                header("location: index.php");                       
                             }
                         }
                     }
@@ -54,16 +56,12 @@ if(isset($_POST['username']) && isset($_POST['phonenumber'])) {
         <p>This is login page for Chat Room</p>
         <form action="" method="post">
             <h3>Username</h3>
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="name" placeholder="Username">
 
             <h3>Mobile No.</h3>
-            <input type="text" name="phonenumber" min="1111111" max="999999999999999" placeholder="with country code">
-<br>
+            <input type="text" name="number" min="1111111" max="999999999999999" placeholder="with country code">
             <button>Login/Register</button>
         </form>
     </div>
 </body>
 </html>
-<?php
-mysqli_close($conn);
-?>

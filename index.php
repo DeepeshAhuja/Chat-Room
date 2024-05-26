@@ -1,9 +1,7 @@
 <?php
-if(isset($_SESSION["username"]) && isset($SESSION["phonenumber"]))
+session_start();
+if(isset($_SESSION["userName"]) && isset($_SESSION["phone"]))
 {
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +14,7 @@ if(isset($_SESSION["username"]) && isset($SESSION["phonenumber"]))
 <body>
     <h1>ChatRoom</h1>
     <div class="chat">
-        <h2>Welcome <span>User</span> to the Chat Room </h2>
+        <h2>Welcome <span><?php echo $_SESSION["userName"] ?></span> to the Chat Room </h2>
         <div class="msg">
         
         </div>
