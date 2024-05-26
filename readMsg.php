@@ -11,13 +11,18 @@ if ($rq = mysqli_query($conn, $q)) {
                 <p class="sender">
                     <span><?= $row["phone"] ?></span>
                     <?= $row["msg"] ?>
+                    <span><?= $row["date"] ?></span>
                 </p>
 
             <?php
             } else {
             ?>
-                <p><span><?= $row["phone"] ?></span>
-                    <?= $row["msg"] ?></p>
+                <p>
+                    <span><?= $row["phone"] ?></span>
+                    <?= $row["msg"] ?>
+                    <span><?= $row["date"] ?></span>
+                </p>
+                    
 
 <?php
             }
