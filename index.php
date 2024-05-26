@@ -14,17 +14,18 @@ if(isset($_SESSION["userName"]) && isset($_SESSION["phone"]))
 <body>
     <h1>ChatRoom</h1>
     <div class="chat">
-        <h2>Welcome <span><?php echo $_SESSION["userName"] ?></span> to the Chat Room </h2>
+        <h2>Welcome <span><?= $_SESSION["userName"] ?></span> to the Chat Room </h2>
         <div class="msg">
         
         </div>
         <div class="input_msg">
             <input type="text"
-            placeholder="Write Message Here">
-            <button>Send</button>
+            placeholder="Write Message Here" id="input_msg">
+            <button onclick="update()">Send</button>
         </div>
     </div>
 </body>
+<script src="./JS/script.js"></script>
 </html>
 
 <?php
