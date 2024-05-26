@@ -35,7 +35,11 @@ h1{
     margin: 1rem auto;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
+.msg::-webkit-scrollbar {
+    display: none;
+  }
 .input_msg{
     display: flex;
     justify-content: space-between;
