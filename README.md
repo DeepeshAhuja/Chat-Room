@@ -5,6 +5,6 @@ And hosted on [chatroom](http://private-dm.42web.io)
 
         1. git clone https://github.com/DeepeshAhuja/Chat-Room.git
 
-2. cd Chat-Room
+        2. cd Chat-Room
 
-3. import database.php in your php admin console 
+1. import database.php in your php admin console 
