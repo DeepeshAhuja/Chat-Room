@@ -8,4 +8,4 @@ And hosted on [chatroom](http://private-dm.42web.io)
 
         2. cd Chat-Room
 
-1. import database.php in your php admin console 
+3. import database.php in your php admin console 
